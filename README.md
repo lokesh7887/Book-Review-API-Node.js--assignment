@@ -91,3 +91,114 @@ A RESTful API built with Node.js and Express for a Book Review system. This API 
 ### Installation
 
 1. Clone the repository:
+2. 2. Install dependencies:
+
+```shellscript
+npm install
+```
+
+or
+
+```shellscript
+yarn install
+```
+
+
+3. Create a `.env` file in the root directory with the following variables:
+
+```plaintext
+NODE_ENV=development
+PORT=3000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=24h
+JWT_REFRESH_EXPIRES_IN=7d
+```
+
+Notes:
+
+1. For local MongoDB, use: `MONGODB_URI=mongodb://localhost:27017/book-review-api`
+2. Generate a strong random string for `JWT_SECRET` (e.g., using `openssl rand -base64 32`)
+3. Adjust token expiration times as needed
+
+
+
+4. Set up MongoDB:
+
+1. Option 1: Local MongoDB
+
+```shellscript
+# Start MongoDB locally
+mongod --dbpath /path/to/data/directory
+```
+
+
+2. Option 2: MongoDB Atlas
+
+1. Create a free account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Create a new cluster
+3. Click "Connect" and follow the instructions to get your connection string
+4. Replace `your_mongodb_connection_string` in the `.env` file with your Atlas connection string
+
+
+
+
+
+
+5. Build the TypeScript code (if using TypeScript):
+
+```shellscript
+npm run build
+```
+
+or
+
+```shellscript
+yarn build
+```
+
+
+
+
+## Running the Application Locally
+
+1. Start the development server:
+
+```shellscript
+npm run dev
+```
+
+or
+
+```shellscript
+yarn dev
+```
+
+
+2. For production:
+
+```shellscript
+npm run start
+```
+
+or
+
+```shellscript
+yarn start
+```
+
+
+3. The API will be available at:
+
+```plaintext
+http://localhost:3000/api
+```
+
+
+4. To verify the server is running, access:
+
+```plaintext
+http://localhost:3000/api/health
+```
+
+You should see a response: `{"status":"success","message":"API is running"}`
